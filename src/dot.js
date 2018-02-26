@@ -11,17 +11,19 @@ export default class Dot extends Component {
   };
 
   static defaultProps = {
-    color: 'rgba(192, 192, 192, 1)',
+    color: 'white',
     diameter: 10,
   };
 
   render() {
-    const { color, diameter } = this.props;
+    const { color, diameter , borderColor, borderWidth} = this.props;
 
     return (
       <View
         style={ [{
           backgroundColor: color,
+          borderWidth: borderWidth,
+          borderColor: borderColor,
           width: diameter,
           height: diameter,
           borderRadius: diameter / 2,

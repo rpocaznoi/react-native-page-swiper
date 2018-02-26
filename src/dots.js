@@ -27,15 +27,18 @@ export default class Dots extends Component {
     const range = Array.from(new Array(total), (x, i) => i);
 
     return (
-      <View style={ [styles.dots, this.props.style] }>
-       { range.map(i => {
+      <View style={[styles.dots, this.props.style]}>
+        {range.map(i => {
           return (
             <Dot
-              color={ i === active ? this.props.activeColor : this.props.color }
-              key={ i }
+              color={i === active ? this.props.activeColor : this.props.color}
+              borderColor={i === active ? this.props.activeBorderColor : this.props.inactiveBorderColor}
+              borderWidth={this.props.borderWidth}
+              diameter={this.props.diameter}
+              key={i}
             />
           );
-        }) }
+        })}
       </View>
     );
   }

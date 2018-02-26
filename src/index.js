@@ -24,8 +24,12 @@ export default class Swiper extends Component {
     index: 0,
     pager: true,
     threshold: 25,
-    onPageChange: () => {},
+    onPageChange: (pageNumber) => { },
     activeDotColor: 'blue',
+    activeBorderColor: 'white',
+    inactiveBorderColor: 'green',
+    diameter: 16,
+    borderWidth: 2
   };
 
   constructor(props) {
@@ -121,21 +125,25 @@ export default class Swiper extends Component {
     };
 
     return (
-      <View onLayout={ this.handleLayout.bind(this) } style={ { flex: 1, overflow: 'hidden' } }>
+      <View onLayout={this.handleLayout.bind(this)} style={{ flex: 1, overflow: 'hidden' }}>
         <Animated.View
           {...this._panResponder.panHandlers}
-          style={ [sceneContainerStyle, { transform: [{ translateX }] }] }
+          style={[sceneContainerStyle, { transform: [{ translateX }] }]}
         >
-          { scenes }
+          {scenes}
         </Animated.View>
 
-        { this.props.pager &&
+        {this.props.pager &&
           <Dots
-            active={ this.state.index }
-            activeColor={ this.props.activeDotColor }
-            style={ { position: 'absolute', bottom: 50, width: this.state.viewWidth } }
-            total={ this.props.children.length }
-          /> }
+            active={this.state.index}
+            activeColor={this.props.activeDotColor}
+            activeBorderColor={this.props.activeBorderColor}
+            inactiveBorderColor={this.props.inactiveBorderColor}
+            diameter={this.props.diameter}
+            borderWidth={this.props.borderWidth}
+            style={{ position: 'absolute', top: 80, width: this.state.viewWidth }}
+            total={this.props.children.length}
+          />}
       </View>
     );
   }
