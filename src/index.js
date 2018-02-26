@@ -7,8 +7,7 @@ import {
   PanResponder,
   View,
 } from 'react-native';
-import PropTypes from 'prop-types';
-
+import PropTypes from 'prop-types'
 import Dots from './dots';
 
 export default class Swiper extends Component {

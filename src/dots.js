@@ -4,10 +4,9 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
-  ViewPropTypes,
+  ViewPropTypes
 } from 'react-native';
-import PropTypes from 'prop-types';
-
+import PropTypes from 'prop-types'
 import Dot from './dot';
 
 export default class Dots extends Component {
